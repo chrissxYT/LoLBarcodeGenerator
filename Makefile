@@ -1,6 +1,10 @@
-all:
-	@gcc lbg.c -O3 -s -o lbg
+CC ?= cc
+CFLAGS ?= -O3
 
-test:
-	@gcc lbg.c -Og -o lbg
-	@./lbg
+all: lbg
+
+lbg: lbg.c
+	$(CC) $< $(CFLAGS) -o $@
+
+test: lbg
+	./lbg
